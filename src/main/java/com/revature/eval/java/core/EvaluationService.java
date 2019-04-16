@@ -650,7 +650,6 @@ public class EvaluationService {
 					insertSpace = true;
 				}if(fakeIndex%5 == 0 && fakeIndex !=0 && insertSpace) {
 					str.append(" ");
-					System.out.println("Insert the worm");
 					insertSpace = false;
 				}
 			}
@@ -719,7 +718,6 @@ public class EvaluationService {
 			}
 		}
 		char[] chars = str.reverse().toString().toCharArray();
-		System.out.println(str);
 		int sum=0;
 		if(!Character.isDigit(chars[0]) && chars[0]!= 'X') {
 			return false;
@@ -727,8 +725,6 @@ public class EvaluationService {
 		for(int i=9; i>=0; i--) {
 			if(chars[i] == 'X') {
 				sum += 10;
-				System.out.println("hey look");
-				System.out.println(sum);
 			}else {
 				sum += Character.getNumericValue(chars[i])*(i+1);
 			}
@@ -762,7 +758,6 @@ public class EvaluationService {
 				alpha.add(chars[i]);
 			}
 		}
-		System.out.println(alpha);
 		for(int i =0;  i< alphabet.length; i++) {
 			if(!alpha.contains(alphabet[i])) {
 				return false;
@@ -813,19 +808,15 @@ public class EvaluationService {
 		for(int x=0; x < set.length; x++) {//fetching all multiples to a set to remove duplicates
 			mult = set[x];
 			while(mult < i) {
-				//System.out.println("Adding mult: " + mult);
 				multiples.add(mult);
 				mult += set[x];
-				
 			}
 		}
-		//System.out.println("This is the set" + multiples);
 		for(int j=0; j<i; j++) {
 			if(multiples.contains(j)) {
 				sum += j;
 			}
 		}
-		System.out.println("Sum: " + sum);
 		return sum;
 	}
 
@@ -872,14 +863,12 @@ public class EvaluationService {
 		int sum=0;
 		for(int i=0; i<chars.length; i++) {
 			if((!Character.isDigit(chars[i])&&chars[i]!=' ')) {
-				System.out.println("you fail!");
 				return false;
 			}
 			if(Character.isDigit(chars[i])) {
 				str.append(chars[i]);
 			}
 		}
-		System.out.println(str);
 		char [] clean = str.toString().toCharArray();
 		for(int i=0; i<clean.length; i++) {
 			ls.add(Character.getNumericValue(clean[i]));
@@ -891,11 +880,9 @@ public class EvaluationService {
 				ls.set(i, ls.get(i)*2);
 			}
 		}
-		System.out.println(ls);
 		for(int i=0; i<ls.size(); i++) {
 			sum = sum + ls.get(i);
 		}
-		System.out.println(sum);
 		if(sum %10 == 0) {
 			return true;
 		}else {
